@@ -19,17 +19,13 @@ export default function NavBar () {
                              width={38} height={38}
                               src='/AGROTRADE.png' alt="logo" />
                         </li>    
-                        <li className={`${montserrat_500.className}
-                         text-green-700 hover:text-yellow-700`}>
+                        <li className={`${montserrat_500.className} text-green-700 hover:text-yellow-700 hidden md:block`}>
                         <Link href="/">Home</Link></li>
-                        <li className={`${montserrat_500.className}
-                         text-green-700 hover:text-yellow-700`}>
+                        <li className={`${montserrat_500.className} text-green-700 hover:text-yellow-700 hidden md:block`}>
                         <Link href="/about-us">About Us</Link></li>
-                        <li className={`${montserrat_500.className}
-                         text-green-700 hover:text-yellow-700`}>
+                        <li className={`${montserrat_500.className} text-green-700 hover:text-yellow-700 hidden md:block`}>
                         <Link href="/contact-us">Contact Us</Link></li>
-                        <li className={`${montserrat_500.className}
-                         text-green-700 hover:text-yellow-700`}>
+                        <li className={`${montserrat_500.className} text-green-700 hover:text-yellow-700`}>
                         <Link href="/products">Products</Link></li>
                     </ul>
 
