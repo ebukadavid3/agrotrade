@@ -1,12 +1,22 @@
-import { useState } from "react"; 
+import { useState,useContext } from "react";
+import { AppContext } from "@/config/global"; 
 import Head from "next/head";
 import Image from "next/image";
 import { TextField } from '@mui/material';
 import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from 'react-icons/fa';
+import { useFormik } from "formik";
 
 export default function Signup () {
-    const [tab,setTab] = useState('buyer')
+    const [tab,setTab] = useState('buyer');
+    const {accountType,setAccountType}  = useContext(AppContext);
+    console.log(accountType);
+
+    const {handleBlur,handleChange,handleSubmit,touched,errors} = useFormik ({
+        initialValues: {},
+        onSubmit: () => {},
+        validateSchema:null,
+    })
     return (
         <>
         <Head>
