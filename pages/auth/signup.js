@@ -6,11 +6,14 @@ import { TextField } from '@mui/material';
 import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from 'react-icons/fa';
 import { useFormik } from "formik";
+import { signIn } from 'next-auth/react'
+import { useSession } from "next-auth/react";
 
 export default function Signup () {
     const [tab,setTab] = useState('buyer');
     const {accountType,setAccountType}  = useContext(AppContext);
-    console.log(accountType);
+    const {data:session} = useSession();
+    console.log(session);
 
     const {handleBlur,handleChange,handleSubmit,touched,errors} = useFormik ({
         initialValues: {},
@@ -47,24 +50,9 @@ export default function Signup () {
 
                     <form>
                         <div className="mb-2">
-                            <TextField className="w-full" variant="outlined" label="First Name"/>
-                        </div>
-
-                        <div className="mb-2">
-                            <TextField className="w-full" variant="outlined" label="Last Name"/>
-                        </div>
-
-                        <div className="mb-2">
                             <TextField className="w-full" type="email" variant="outlined" label="email"/>
                         </div>
-
-                        {tab == 'farmer'
-                        ? <div className="mb-2">
-                            <TextField className="w-full" variant="outlined" label="company name"/>
-                        </div>
-                        : null}
-
-                         <button className="h-[48px] w-full flex justify-center items-center bg-green-700 text-white text-xl rounded-md">Register</button>
+                        <button className="h-[48px] w-full flex justify-center items-center bg-green-700 text-white text-xl rounded-md">Register</button>
                     </form>
 
                     {/* OR seperator */}
@@ -74,6 +62,7 @@ export default function Signup () {
                     {/* Social Signup */}
                     <div className="flex flex-col gap-3">
                         <button
+                        onClick={() => signIn('google')}
                          className="h-[48px] w-full flex justify-center items-center border border-slate-400 rounded-md text-slate-900">
                             <FcGoogle className="text-3xl mr-3"/>Signup up with Google</button>
                         <button

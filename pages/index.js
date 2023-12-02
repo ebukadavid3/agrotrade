@@ -18,7 +18,8 @@ export default function index () {
       </Head>
       <main className="bg-home w-full h-screen flex flex-col justify-end">
         {/* bottom content */}
-      <div className="flex flex-col gap-6 h-[40%] bg-gradient-to-b from-green-600/90 to-green-900 p-3 pt-20 lg:grid grid-cols-2 md:grid grid-cols-2">
+      <div className="flex flex-col gap-6 h-[40%] bg-gradient-to-b from-green-600/90 to-green-900 p-3 pt-20 lg:grid grid-cols-2 md:grid grid-cols-2"
+      style={{ background: 'linear-gradient(to bottom, rgba(0, 128, 0, 0), rgba(0, 128, 0, 1)' }}>
         <div className={styles.block}>
         <h1 className={`${nunintobold.className} text-5xl md:text-6xl lg:text-7xl`}>
             <span className="text-white">Agro</span>
