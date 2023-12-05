@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-home {
-  background: url('/home.jpg');
+  background: url('/home.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
