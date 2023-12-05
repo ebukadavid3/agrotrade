@@ -13,7 +13,6 @@ export default function Signup () {
     const [tab,setTab] = useState('buyer');
     const {accountType,setAccountType}  = useContext(AppContext);
     const {data:session} = useSession();
-    console.log(session);
 
     const {handleBlur,handleChange,handleSubmit,touched,errors} = useFormik ({
         initialValues: {},
@@ -25,7 +24,7 @@ export default function Signup () {
         <Head>
             <title>Signup | AgroTrade</title>
         </Head>
-        <main className="h-screen flex justify-center items-center">
+        <main className="h-screen lg:h-auto flex justify-center items-center py-20 px-3 md:px-0">
             <div className="w-full md:w-[420px] flex flex-col gap-3 border border-gray-300 ronded-md p-3">
                 <Image
                 width={400}
