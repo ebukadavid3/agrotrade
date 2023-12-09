@@ -1,13 +1,24 @@
-import { getServerSession } from "next-auth"
+import Head from "next/head";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]";
-export default function sellerDashboard() {
+import { SellerSideTabs } from "@/components/sellerSideTabs";
+
+export default function SellerDasboard() {
     return (
         <>
         <Head>
-            <title>Signup | AgroTrade</title>
+            <link rel="icon" href="/AGROTRADE.png" />
+            <title>Seller Dashboard | AgroTrade</title>
         </Head>
-        <main className="h-screen lg:h-auto flex justify-center items-center py-20 px-3 md:px-0">
-            <h1>Seller Dashboard</h1>
+        <main className="h-screen py-12 px-3 md:px-16">
+            <section className="grid grid-cols-4 gap-6">
+                <article className="col-span-3 border border-gray-300 rounded-md p-3">
+                    <h3>Recent purchases</h3>
+                </article>
+
+                <SellerSideTabs/>
+            </section>
         </main>
         </>
     )
@@ -16,21 +27,16 @@ export default function sellerDashboard() {
 export async function getServerSideProps (context) {
     const session = await getServerSession(context.req,context.res,authOptions);
     if (session) {
-        if (session.user_data?.accountType == 'seller') {
-            return {redirect:{destination:'/seller-dashboard',permanent:false}}
-        } 
-        else if (session.user_data?.accountType != 'buyer') {
-            return {redirect:{destination:'/products',permanent:false}}
-        } 
-        else {
-            return {redirect:{destination:'/auth/continue-registration',permanent:false}}
+        if (session.user_data?.accountType != 'seller') {
+            return {redirect:{destination:'/',permanent:false}}
         } 
     } else {
         return {redirect:{destination:'/auth/signup',permanent:false}}
     }
+    
     return {
         props:{
-            session:JSON.parse(JSON.stringify(session))
+            session
         }
     }
 }
