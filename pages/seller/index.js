@@ -11,8 +11,8 @@ export default function SellerDasboard() {
             <link rel="icon" href="/AGROTRADE.png" />
             <title>Seller Dashboard | AgroTrade</title>
         </Head>
-        <main className="h-screen py-12 px-3 md:px-16">
-            <section className="grid grid-cols-4 gap-6">
+        <main className="h-auto lg:h-screen py-12 px-3 md:px-16">
+            <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <article className="col-span-3 border border-gray-300 rounded-md p-3">
                     <h3>Recent purchases</h3>
                 </article>
