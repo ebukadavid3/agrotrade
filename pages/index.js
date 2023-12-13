@@ -14,6 +14,10 @@ export default function index () {
   return (
     <>
       <Head>
+      <link rel="alternate" href="http://agrotrade.com" hrefLang="en-us" />
+      <link rel="icon" href="/AGROTRADE.png" />
+      <meta name="description" content="AgroTrade, a farmers' web application" />
+      <meta name="keywords" content="AgroTrade" />
             <title>Agro Trade</title>
       </Head>
       <main className="bg-home w-full h-screen flex flex-col justify-end">
